@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasDispatchingActivityInjector;
 import io.realm.Realm;
+import rpek.fastfood.di.components.subcomponents.DaggerAppComponents;
 
 /**
  * Created by r.pek on 11.10.2017.
@@ -32,8 +33,7 @@ public class FoodApplication extends Application implements HasDispatchingActivi
     public void onCreate() {
         MultiDex.install(this);
         super.onCreate();
-       // DaggerAppComponents.create().inject(this);
-
+        DaggerAppComponents.create().inject(this);
         Realm.init(this);
     }
 
